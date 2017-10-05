@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-md-6">
+		<h1>All Restaurant Reviews</h1>
+	</div>
+</div>
+
+<% @posts.each do |post| %>
+<div class="well">
+    <h2><strong><%= link_to post.title, post_path(post) %></strong></h2>
+    <p><%= post.body %></p>
+    <span><%= image_tag(post.image_url(:thumb)) if post.image? %></span>
+
+</div>
+<% end %>

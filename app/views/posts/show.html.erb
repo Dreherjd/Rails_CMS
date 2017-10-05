@@ -1,0 +1,12 @@
+	<div class="jumbotron">
+		<h1 class="display-3"><%= @post.title %></h1>
+		<p><%= @post.body %></p>
+		<span><%= image_tag(@post.image_url(:large)) if @post.image? %></span>
+	</div>
+	<div class="btn-group-vertical">
+		<% if user_signed_in? && current_user == @post.user %>
+		<%= link_to "Edit A Review!", edit_post_path(@post), class: 'btn btn-info' %>
+    	<%= button_to "Delete A Review", post_path(@post), method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn btn-danger' %>
+    	<% end %>
+		<%= link_to "Back to Reviews", root_path, class: 'btn btn-info' %>
+	</div>

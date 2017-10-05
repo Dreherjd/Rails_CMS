@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-ice-lolly-tasted"></span> Zucumber</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+      <li><%= link_to "Write A Review", new_post_path, class: 'nav navbar-nav' %></li>
+      <% end %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-item' %></li>
+        <li><%= link_to "Edit Information", edit_user_registration_path %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</nav>
